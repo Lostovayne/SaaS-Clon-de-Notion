@@ -1,5 +1,7 @@
 # Fullstack Notion Clone: Next.js 14, React, Convex, Tailwind, ShadCn
 
+![screencapture-localhost-3000-2023-11-16-16_22_56](https://github.com/Lostovayne/Clon-de-Notion-con-Next14-Tailwind-Typescript/assets/92962731/9fff6f52-88ff-4798-b59e-f1a8d19e84d1)
+
 
 Key Features:
 
