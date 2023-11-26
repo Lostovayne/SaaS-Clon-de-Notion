@@ -3,6 +3,8 @@
 The development of the Notion application mentioned earlier showcases the implementation of cutting-edge technologies. Built on Next 14, the application seamlessly integrates Clerk for secure authentication and leverages Convex as a robust cloud backend. To enhance the user experience, the application utilizes a combination of Shadcn components and Tailwind for stylish and responsive designs. This combination of powerful tools and frameworks ensures a seamless and visually appealing experience for users.
 
 
+![screencapture-localhost-3000-2023-11-16-16_22_56](https://github.com/Lostovayne/Clon-de-Notion-con-Next14-Tailwind-Typescript/assets/92962731/9fff6f52-88ff-4798-b59e-f1a8d19e84d1)
+
 
 **Key Features:**
 
@@ -61,4 +63,3 @@ npx convex dev
 ```shell
 npm run dev
 ```
-
