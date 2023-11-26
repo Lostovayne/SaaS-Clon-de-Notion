@@ -1,7 +1,10 @@
-# Fullstack Notion Clone: Next.js 14, React, Convex, Tailwind, ShadCn
+### Notion Clone 
+
+The development of the Notion application mentioned earlier showcases the implementation of cutting-edge technologies. Built on Next 14, the application seamlessly integrates Clerk for secure authentication and leverages Convex as a robust cloud backend. To enhance the user experience, the application utilizes a combination of Shadcn components and Tailwind for stylish and responsive designs. This combination of powerful tools and frameworks ensures a seamless and visually appealing experience for users.
 
 
-Key Features:
+
+**Key Features:**
 
 - Real-time database  🔗 
 - Notion-style editor 📝 
@@ -24,12 +27,6 @@ Key Features:
 ### Prerequisites
 
 **Node version 18.x.x**
-
-### Cloning the repository
-
-```shell
-git clone https://github.com/AntonioErdeljac/notion-clone-tutorial.git
-```
 
 ### Install packages
 
@@ -64,3 +61,4 @@ npx convex dev
 ```shell
 npm run dev
 ```
+
