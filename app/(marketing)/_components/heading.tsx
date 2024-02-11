@@ -37,7 +37,7 @@ const Heading = () => {
 
             {!isAuthenticated && !isLoading && (
                 <SignInButton mode="modal">
-                    <Button variant="ghost" size="sm">
+                    <Button variant="default" size="sm">
                         Get Jotion Free
                         <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>

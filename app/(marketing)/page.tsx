@@ -4,8 +4,8 @@ import Heroes from "./_components/heroes";
 
 const MarketingPage = () => {
     return (
-        <div className="min-h-full flex flex-col dark:bg-[#1f1f1f]">
-            <div className="flex flex-col items-center justify-center md:justify-start text-center gap-y-8 flex-1 px-6">
+        <div className="flex min-h-full flex-col dark:bg-[#1f1f1f]">
+            <div className="flex flex-1 flex-col items-center justify-center gap-y-8 px-6 text-center md:justify-start">
                 <Heading />
                 <Heroes />
             </div>

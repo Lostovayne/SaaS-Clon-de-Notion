@@ -36,29 +36,33 @@ The development of the Notion application mentioned earlier showcases the implem
 npm i
 ```
 
+**Copy .env.example to .env.local**
+
+
 ### Setup .env file
 
 
 ```js
 # Deployment used by `npx convex dev`
+
+# Variables de entorno de convex
 CONVEX_DEPLOYMENT=
 NEXT_PUBLIC_CONVEX_URL=
 
+# Variables de entorno de Clerk
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
 
-EDGE_STORE_ACCESS_KEY=
-EDGE_STORE_SECRET_KEY=
 ```
 
-### Setup Convex
+### Start server convex
 
 ```shell
 npx convex dev
 
 ```
 
-### Start the app
+### Start the app  
 
 ```shell
 npm run dev
