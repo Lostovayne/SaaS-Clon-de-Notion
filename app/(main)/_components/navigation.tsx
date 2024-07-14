@@ -37,7 +37,9 @@ export const Navigation = () => {
   }, [pathname, isMobile]);
 
   //funciones
-  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleMouseDown = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
     event.preventDefault();
     event.stopPropagation();
     isResizingRef.current = true;
@@ -53,7 +55,10 @@ export const Navigation = () => {
     if (sidebarRef.current && navbarRef.current) {
       sidebarRef.current.style.width = `${newWidth}px`;
       navbarRef.current.style.setProperty("left", `${newWidth}px`);
-      navbarRef.current.style.setProperty("width", `calc(100% - ${newWidth}px)`);
+      navbarRef.current.style.setProperty(
+        "width",
+        `calc(100% - ${newWidth}px)`
+      );
     }
   };
 
@@ -69,7 +74,10 @@ export const Navigation = () => {
       setIsResetting(true);
 
       sidebarRef.current.style.width = isMobile ? "100%" : "240px";
-      navbarRef.current.style.setProperty("width", isMobile ? "0" : "calc(100% - 240px)");
+      navbarRef.current.style.setProperty(
+        "width",
+        isMobile ? "0" : "calc(100% - 240px)"
+      );
       navbarRef.current.style.setProperty("left", isMobile ? "100%" : "240px");
     }
 
@@ -134,7 +142,13 @@ export const Navigation = () => {
         )}
       >
         <nav className="bg-transparent px-3 py-2 w-full">
-          {isCollapsed && <MenuIcon role="button" onClick={resetWidth} className="w-6 h-6 text-muted-foreground" />}
+          {isCollapsed && (
+            <MenuIcon
+              role="button"
+              onClick={resetWidth}
+              className="w-6 h-6 text-muted-foreground"
+            />
+          )}
         </nav>
       </div>
     </>
