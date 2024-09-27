@@ -37,24 +37,6 @@ El desarrollo de esta aplicación tipo Notion muestra la implementación de tecn
 - **Tailwind CSS**: Framework de CSS para estilos.
 - **TypeScript**: Superset de JavaScript para tipado estático.
 
-## Estructura del Proyecto
-
-/
-├── app/
-│ ├── (main)/
-│ │ └── (routes)/
-│ │ ├── documents/
-│ │ └── ...
-│ ├── (marketing)/
-│ │ └── ...
-│ └── api/
-├── components/
-├── convex/
-├── hooks/
-├── lib/
-├── public/
-└── styles/
-
 ## Configuración del Proyecto
 
 ### Prerrequisitos
