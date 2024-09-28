@@ -1,13 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
+import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
-import { ChevronsLeft, MenuIcon } from "lucide-react";
+import { useMutation, useQuery } from "convex/react";
+import { ChevronsLeft, MenuIcon, PlusCircle } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
+import { Item } from "./item";
 import UserItem from "./user-item";
-import { useQuery } from "convex/react";
-import { api } from "@/convex/_generated/api";
+import { toast } from "sonner";
 
 export const Navigation = () => {
   // hooks
@@ -17,6 +19,7 @@ export const Navigation = () => {
 
   // Leer los documentos desde convex
   const documents = useQuery(api.documents.get);
+  const create = useMutation(api.documents.create);
 
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ElementRef<"aside">>(null);
@@ -96,6 +99,16 @@ export const Navigation = () => {
     }
   };
 
+  const handleCreate = () => {
+    const promise = create({ title: "Untitled" });
+
+    toast.promise(promise, {
+      loading: "Creating a new note...",
+      success: "Note created successfully!",
+      error: "Error creating the note.",
+    });
+  };
+
   return (
     <>
       <aside
@@ -117,6 +130,7 @@ export const Navigation = () => {
         <div>
           {/* Acciones del usuario */}
           <UserItem />
+          <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
         </div>
         <div className="mt-4">{documents?.map((document) => <p key={document._id}>{document.title}</p>)}</div>
         <div
