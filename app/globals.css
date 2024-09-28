@@ -2,20 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html,
 body,
-:root{
-    height: 100%;   
+:root {
+  height: 100%;
 }
 
 ::-webkit-scrollbar {
   display: none;
   width: 0;
 }
-
-
-
 
 @layer base {
   :root {
