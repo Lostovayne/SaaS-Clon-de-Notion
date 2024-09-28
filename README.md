@@ -56,7 +56,7 @@ npm i
 ```js
 # Despliegue usado por `npx convex dev`
 
-# Variables de entorno de Convex se agregan automáticamente si se ejecuta el comando npx.... desde la web de Convex
+# Variables de entorno de Convex se agregan automáticamente si se ejecuta el comando npx desde la web de Convex
 CONVEX_DEPLOYMENT=
 NEXT_PUBLIC_CONVEX_URL=
 
