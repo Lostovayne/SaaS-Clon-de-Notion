@@ -3,7 +3,7 @@
 import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
 import { useMutation, useQuery } from "convex/react";
-import { ChevronsLeft, MenuIcon, PlusCircle } from "lucide-react";
+import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
@@ -130,6 +130,8 @@ export const Navigation = () => {
         <div>
           {/* Acciones del usuario */}
           <UserItem />
+          <Item label="Search" isSearch icon={Search} onClick={() => {}} />{" "}
+          <Item label="Settings" icon={Settings} onClick={() => {}} />
           <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
         </div>
         <div className="mt-4">{documents?.map((document) => <p key={document._id}>{document.title}</p>)}</div>
