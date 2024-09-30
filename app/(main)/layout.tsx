@@ -5,11 +5,7 @@ import { useConvexAuth } from "convex/react";
 import { redirect } from "next/navigation";
 import { Navigation } from "./_components/navigation";
 
-export default function MainLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function MainLayout({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
   if (isLoading) {
@@ -25,7 +21,7 @@ export default function MainLayout({
   }
 
   return (
-    <div className="h-full flex dark:bh-[#1f1f1f]">
+    <div className="h-full flex dark:bg-[#1f1f1f]">
       <Navigation />
       <main className="flex-1 h-full overflow-y-auto">{children}</main>
     </div>

@@ -16,6 +16,31 @@ export const get = query({
   },
 });
 
+export const getSidebar = query({
+  args: {
+    parentDocument: v.optional(v.id("documents")),
+  },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+
+    if (!identity) {
+      throw new Error("Not authenticated");
+    }
+
+    const userId = identity.subject;
+
+    const documents = await ctx.db
+      .query("documents")
+      .withIndex("by_user_parent", (q) =>
+        q.eq("userId", userId).eq("parentDocument", args.parentDocument)
+      )
+      .filter((q) => q.eq(q.field("isArchived"), false))
+      .collect();
+
+    return documents;
+  },
+});
+
 // Crear un documento
 export const create = mutation({
   args: {
