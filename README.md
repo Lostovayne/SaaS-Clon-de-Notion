@@ -123,3 +123,5 @@ Para soporte, por favor abre un issue en el repositorio de GitHub.
 ## Licencia
 
 Este proyecto está bajo la licencia [INSERTAR TIPO DE LICENCIA]. Consulta el archivo `LICENSE` para más detalles.
+
+## MAJO ESTUVO AQUI!!!!!
