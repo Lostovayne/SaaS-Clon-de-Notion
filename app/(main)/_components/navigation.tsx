@@ -2,6 +2,7 @@
 "use client";
 import { api } from "@/convex/_generated/api";
 import { useSearch } from "@/hooks/use-search";
+import { useSettings } from "@/hooks/use-settings";
 import { cn } from "@/lib/utils";
 import { useMutation } from "convex/react";
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react";
@@ -19,6 +20,7 @@ import TrashBox from "./trash-box";
 
 export const Navigation = () => {
   // hooks
+  const settings = useSettings();
   const search = useSearch();
   const pathname = usePathname();
   // npm i usehooks-ts
@@ -139,7 +141,7 @@ export const Navigation = () => {
           {/* Acciones del usuario */}
           <UserItem />
           <Item label="Search" isSearch icon={Search} onClick={search.onOpen} />{" "}
-          <Item label="Settings" icon={Settings} onClick={() => {}} />
+          <Item label="Settings" icon={Settings} onClick={settings.onOpen} />
           <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
         </div>
         <div className="mt-4">

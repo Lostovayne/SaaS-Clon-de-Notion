@@ -99,7 +99,7 @@ export const Item = ({
     >
       {!!id && (
         <div
-          className="h-full rounded-md hover:bg-neutral-300 dark:bg-neutral-600 mr-1"
+          className="h-full rounded-md hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1"
           role="button"
           onClick={handleExpand}
         >

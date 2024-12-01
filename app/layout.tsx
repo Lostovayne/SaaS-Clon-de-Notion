@@ -1,4 +1,5 @@
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
+import { ModalProvider } from "@/components/providers/modal-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
@@ -31,8 +32,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ConvexClientProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" disableTransitionOnChange storageKey="jotion-theme-2">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            disableTransitionOnChange
+            storageKey="jotion-theme-2"
+          >
             <Toaster position="bottom-right" />
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
