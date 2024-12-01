@@ -1,5 +1,6 @@
 "use client";
 import { ClerkProvider, useAuth } from "@clerk/clerk-react";
+import { experimental__simple } from "@clerk/themes";
 import { ConvexReactClient } from "convex/react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 import { ReactNode } from "react";
@@ -11,7 +12,7 @@ export const ConvexClientProvider = ({ children }: { children: ReactNode }) => {
     <ClerkProvider
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}
       appearance={{
-        baseTheme: undefined,
+        baseTheme: experimental__simple,
       }}
       signInUrl="/sign-in"
       signUpUrl="/sign-up"
