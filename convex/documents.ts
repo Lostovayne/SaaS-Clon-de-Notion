@@ -212,3 +212,29 @@ export const remove = mutation({
     return document;
   },
 });
+
+/**
+ * @function getSearch
+ * @description Busca los documentos que coinciden con la palabra clave
+ * @param {ConvexContext} ctx - El contexto de Convex
+ * @returns {Promise<Doc<"documents">[]>} - Un array de los documentos que coinciden con la palabra clave
+ */
+export const getSearch = query({
+  handler: async (ctx) => {
+    const identity = await ctx.auth.getUserIdentity();
+
+    if (!identity) {
+      throw new Error("Not authenticated");
+    }
+
+    const userId = identity.subject;
+    const documents = await ctx.db
+      .query("documents")
+      .withIndex("by_user", (q) => q.eq("userId", userId))
+      .filter((q) => q.eq(q.field("isArchived"), false))
+      .order("desc")
+      .collect();
+
+    return documents;
+  },
+});

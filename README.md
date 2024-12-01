@@ -1,127 +1,199 @@
-# Clon de Notion
+# Notion Clone
 
-## Descripción General
+<div align="center">
 
-Este proyecto es un clon de Notion desarrollado con tecnologías modernas. Ofrece una experiencia similar a Notion con funcionalidades de edición en tiempo real, autenticación segura y una interfaz de usuario responsive.
+![Notion Clone Logo](https://github.com/Lostovayne/Clon-de-Notion-con-Next14-Tailwind-Typescript/assets/92962731/9fff6f52-88ff-4798-b59e-f1a8d19e84d1)
 
-El desarrollo de esta aplicación tipo Notion muestra la implementación de tecnologías de vanguardia. Construida sobre Next 14, la aplicación integra perfectamente Clerk para una autenticación segura y aprovecha Convex como un robusto backend en la nube. Para mejorar la experiencia del usuario, la aplicación utiliza una combinación de componentes Shadcn y Tailwind para diseños elegantes y responsivos. Esta combinación de herramientas y frameworks poderosos asegura una experiencia fluida y visualmente atractiva para los usuarios.
+[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-![captura de pantalla-localhost-3000-2023-11-16-16_22_56](https://github.com/Lostovayne/Clon-de-Notion-con-Next14-Tailwind-Typescript/assets/92962731/9fff6f52-88ff-4798-b59e-f1a8d19e84d1)
+A powerful and modern Notion clone built with cutting-edge technologies.
 
-## Características Principales
+[Demo](your-demo-link) · [Report Bug](your-issues-link) · [Request Feature](your-issues-link)
 
-- Base de datos en tiempo real 🔗
-- Editor estilo Notion 📝
-- Modo claro y oscuro 🌓
-- Documentos hijos infinitos 🌲
-- Papelera y eliminación suave 🗑️
-- Autenticación 🔐
-- Carga de archivos
-- Eliminación de archivos
-- Reemplazo de archivos
-- Iconos para cada documento (cambios en tiempo real) 🌠
-- Barra lateral expandible ➡️🔀⬅️
-- Completamente responsive para móviles 📱
-- Publica tu nota en la web 🌐
-- Barra lateral completamente plegable ↕️
-- Página de inicio 🛬
-- Imagen de portada para cada documento 🖼️
-- Recuperación de archivos eliminados 🔄📄
+</div>
 
-## Tecnologías Principales
+## Overview
 
-- **Next.js 14**: Framework de React para el frontend.
-- **Clerk**: Sistema de autenticación.
-- **Convex**: Backend en la nube para tiempo real.
-- **Shadcn**: Componentes UI personalizables.
-- **Tailwind CSS**: Framework de CSS para estilos.
-- **TypeScript**: Superset de JavaScript para tipado estático.
+This project is a feature-rich Notion clone that demonstrates the implementation of modern web technologies. Built on Next.js 14, it seamlessly integrates real-time collaboration, secure authentication, and a responsive user interface. The application leverages Clerk for authentication and Convex as a robust real-time backend, while utilizing Shadcn components and Tailwind CSS for an elegant and responsive design.
 
-## Configuración del Proyecto
+## Key Features
 
-### Prerrequisitos
+### Core Functionality
 
-**Node versión 18.x.x**
+- Full-featured Notion-style editor
+- Real-time database synchronization
+- Infinite nested documents
+- Secure authentication system
+- Light and dark mode support
 
-### Instalación de paquetes
+### Document Management
 
-```shell
-npm i
+- File upload, replacement, and deletion
+- Soft delete with trash bin functionality
+- Document recovery system
+- Real-time document icon updates
+- Cover images for documents
+
+### User Interface
+
+- Fully collapsible sidebar
+- Responsive mobile design
+- Web publishing capabilities
+- Custom landing page
+- Modern and clean UI
+
+## Technology Stack
+
+### Frontend
+
+- **Next.js 14** - React framework for production
+- **TypeScript** - Static type checking
+- **Tailwind CSS** - Utility-first CSS framework
+- **Shadcn** - Customizable UI components
+
+### Backend & Services
+
+- **Convex** - Real-time backend infrastructure
+- **Clerk** - Authentication and user management
+- **Edge Runtime** - Enhanced performance and scalability
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 18.x.x or higher)
+- npm or yarn package manager
+- Git
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/notion-clone.git
+cd notion-clone
 ```
 
-**Copia .env.example a .env.local**
+2. Install dependencies
 
-### Configuración del archivo .env.local
+```bash
+npm install
+# or
+yarn install
+```
 
-```js
-# Despliegue usado por `npx convex dev`
+3. Environment Setup
+   - Copy `.env.example` to `.env.local`
+   - Configure the following environment variables:
 
-# Variables de entorno de Convex se agregan automáticamente si se ejecuta el comando npx desde la web de Convex
+```env
+# Convex deployment
 CONVEX_DEPLOYMENT=
 NEXT_PUBLIC_CONVEX_URL=
 
-# Variables de entorno de Clerk => Tomarlas de la web de Clerk
+# Clerk authentication
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
 ```
 
-### Iniciar el servidor Convex
+4. Start the development servers
 
-```shell
+```bash
+# Start Convex backend
 npx convex dev
-```
 
-### Iniciar la aplicación
-
-```shell
+# In a new terminal, start Next.js
 npm run dev
+# or
+yarn dev
 ```
 
-## Guía de Desarrollo
+## Project Structure
 
-### Convex
+```
+notion-clone/
+├── app/                    # Next.js app directory
+│   ├── (main)/            # Main application routes
+│   └── (marketing)/       # Marketing pages
+├── components/            # Reusable UI components
+├── convex/                # Backend models and functions
+├── hooks/                # Custom React hooks
+├── lib/                  # Utility functions
+└── public/               # Static assets
+```
 
-- Los modelos y funciones del backend se encuentran en la carpeta `convex/`.
-- Para añadir nuevas funcionalidades al backend, crea nuevos archivos en esta carpeta.
+## Development Guide
 
-### Componentes
+### Adding New Features
 
-- Los componentes reutilizables están en `components/`.
-- Utiliza Shadcn y Tailwind para estilizar los componentes.
+1. Backend (Convex)
 
-### Rutas
+   - Add new models in `convex/schema.ts`
+   - Create new functions in `convex/` directory
 
-- Las rutas de la aplicación se definen en `app/(main)/(routes)/`.
-- Las páginas de marketing están en `app/(marketing)/`.
+2. Frontend
+   - Create components in `components/`
+   - Add new routes in `app/(main)/(routes)/`
+   - Implement hooks in `hooks/`
 
-### Hooks Personalizados
+### Best Practices
 
-- Los hooks reutilizables se encuentran en `hooks/`.
+- Follow TypeScript strict mode guidelines
+- Use Tailwind CSS for styling
+- Implement responsive design patterns
+- Write clean, documented code
+- Follow the established project structure
 
-### Utilidades
+## Deployment
 
-- Las funciones y utilidades comunes están en `lib/`.
+1. Build the application
 
-## Despliegue
+```bash
+npm run build
+# or
+yarn build
+```
 
-1. Configura tu proyecto en Vercel o tu plataforma de hosting preferida.
-2. Asegúrate de configurar las variables de entorno en tu plataforma de hosting.
-3. Conecta tu repositorio y despliega.
+2. Deploy to your preferred platform
+   - Vercel (recommended)
+   - Netlify
+   - Custom server
 
-## Contribución
+### Deployment Checklist
 
-1. Haz fork del repositorio.
-2. Crea una nueva rama (`git checkout -b feature/CaracteristicaIncreible`).
-3. Realiza tus cambios y haz commit (`git commit -m 'Añadir alguna CaracteristicaIncreible'`).
-4. Push a la rama (`git push origin feature/CaracteristicaIncreible`).
-5. Abre un Pull Request.
+- [ ] Configure environment variables
+- [ ] Set up Convex production deployment
+- [ ] Configure Clerk authentication
+- [ ] Set up proper domain and SSL
+- [ ] Test all features in production
 
-## Soporte
+## Contributing
 
-Para soporte, por favor abre un issue en el repositorio de GitHub.
+We welcome contributions! Please follow these steps:
 
-## Licencia
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Este proyecto está bajo la licencia [INSERTAR TIPO DE LICENCIA]. Consulta el archivo `LICENSE` para más detalles.
+## License
 
-## MAJO ESTUVO AQUI!!!!!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+- Create an issue for bug reports or feature requests
+- Star the repository if you find it useful
+- Follow for updates
+
+---
+
+<div align="center">
+
+Made with ❤️ by [DeusloVuilt](your-profile-link)
+
+</div>
