@@ -6,12 +6,13 @@ import { useSettings } from "@/hooks/use-settings";
 import { cn } from "@/lib/utils";
 import { useMutation } from "convex/react";
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { useMediaQuery } from "usehooks-ts";
 import DocumentList from "./document-list";
 import { Item } from "./item";
+import Navbar from "./navbar";
 import UserItem from "./user-item";
 
 //Components Shadcn
@@ -23,6 +24,7 @@ export const Navigation = () => {
   const settings = useSettings();
   const search = useSearch();
   const pathname = usePathname();
+  const params = useParams();
   // npm i usehooks-ts
   const isMobile = useMediaQuery("(max-width:768px)");
 
@@ -170,15 +172,14 @@ export const Navigation = () => {
           isMobile && "left-0 W-FULL"
         )}
       >
-        <nav className="bg-transparent px-3 py-2 w-full">
-          {isCollapsed && (
-            <MenuIcon
-              role="button"
-              onClick={resetWidth}
-              className="w-6 h-6 text-muted-foreground"
-            />
-          )}
-        </nav>
+        {!!params.documentId ?
+          <Navbar isCollapsed={isCollapsed} onResetWidth={resetWidth} />
+        : <nav className="bg-transparent px-3 py-2 w-full">
+            {isCollapsed && (
+              <MenuIcon role="button" onClick={resetWidth} className="w-6 h-6 text-muted-foreground" />
+            )}
+          </nav>
+        }
       </div>
     </>
   );

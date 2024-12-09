@@ -13,8 +13,8 @@
     "deploy:worker": "npm run build:worker && wrangler deploy"
   },
   "dependencies": {
-    "@clerk/clerk-react": "^5.17.1",
-    "@clerk/themes": "^2.1.48",
+    "@clerk/clerk-react": "^5.19.0",
+    "@clerk/themes": "^2.1.53",
     "@opennextjs/cloudflare": "^0.2.1",
     "@radix-ui/react-alert-dialog": "^1.1.2",
     "@radix-ui/react-avatar": "^1.1.1",
@@ -38,18 +38,18 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "usehooks-ts": "^3.1.0",
-    "zustand": "^5.0.1"
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
     "@types/node": "^22.10.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "^18.3.14",
+    "@types/react-dom": "^18.3.2",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "eslint-config-next": "14.2.13",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.15",
+    "tailwindcss": "^3.4.16",
     "typescript": "^5.7.2",
-    "wrangler": "^3.91.0"
+    "wrangler": "^3.93.0"
   }
 }
