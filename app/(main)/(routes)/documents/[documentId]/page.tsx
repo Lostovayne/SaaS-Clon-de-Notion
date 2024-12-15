@@ -14,7 +14,9 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps): ReactElement => {
 	const document = useQuery(api.documents.getById, {
 		documentId: documentId
 	});
-	if (document === null || document === undefined) return <div>Document not found</div>;
+
+	if (document === undefined) return <div>Loading...</div>;
+	if (document === null) return <div>Document not found</div>;
 
 	return (
 		<div className={'pb-40'}>
