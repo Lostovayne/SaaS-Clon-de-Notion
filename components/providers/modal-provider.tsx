@@ -1,22 +1,24 @@
-"use client";
+'use client';
 
-import { SettingsModal } from "@/components/modals/settings-modal";
-import { useEffect, useState } from "react";
+import { SettingsModal } from '@/components/modals/settings-modal';
+import { useEffect, useState } from 'react';
+import { CoverImageModal } from '../modals/cover-image-modal';
 
 export const ModalProvider = () => {
-  const [isMounted, setIsMounted] = useState<boolean>(false);
+	const [isMounted, setIsMounted] = useState<boolean>(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+	useEffect(() => {
+		setIsMounted(true);
+	}, []);
 
-  if (!isMounted) {
-    return null;
-  }
+	if (!isMounted) {
+		return null;
+	}
 
-  return (
-    <>
-      <SettingsModal />
-    </>
-  );
+	return (
+		<>
+			<SettingsModal />
+			<CoverImageModal />
+		</>
+	);
 };

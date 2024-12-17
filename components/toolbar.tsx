@@ -4,6 +4,7 @@ import { IconPicker } from '@/components/icon-picker';
 import { Button } from '@/components/ui/button';
 import { api } from '@/convex/_generated/api';
 import type { Doc } from '@/convex/_generated/dataModel';
+import { useCoverImage } from '@/hooks/use-cover-image';
 import { useMutation } from 'convex/react';
 import { ImageIcon, Smile, X } from 'lucide-react';
 import { FC, ReactElement, useRef, useState, type ElementRef } from 'react';
@@ -16,8 +17,10 @@ interface ToolbarProps {
 
 const Toolbar: FC<ToolbarProps> = ({ initialData, preview }): ReactElement => {
 	const inputRef = useRef<ElementRef<'textarea'>>(null);
+	const RemoveIcon = useMutation(api.documents.removeIcon);
 	const [isEditing, setIsEditing] = useState<boolean>(false);
 	const [value, setValue] = useState<string>(initialData.title);
+	const coverImage = useCoverImage();
 
 	const update = useMutation(api.documents.update);
 
@@ -44,15 +47,22 @@ const Toolbar: FC<ToolbarProps> = ({ initialData, preview }): ReactElement => {
 		}
 	};
 
+	const onIconSelect = (icon: string) => {
+		update({ id: initialData._id, icon });
+	};
+
+	const onRemoveIcon = () => {
+		RemoveIcon({ id: initialData._id });
+	};
 	return (
 		<div className={'pl-[54px] group relative'}>
 			{!!initialData.icon && !preview && (
 				<div className={'flex items-center gap-x-2 group/icon pt-6'}>
-					<IconPicker onChange={() => {}}>
+					<IconPicker onChange={onIconSelect}>
 						<p className={'text-6xl hover:opacity-75 transition'}>{initialData.icon}</p>
 					</IconPicker>
 					<Button
-						onClick={() => {}}
+						onClick={onRemoveIcon}
 						className={'rounded-full opacity-0 group-hover/icon:opacity-100 transition text-muted-foreground text-xs'}
 						variant={'outline'}
 						size={'icon'}>
@@ -64,7 +74,7 @@ const Toolbar: FC<ToolbarProps> = ({ initialData, preview }): ReactElement => {
 
 			<div className={'opacity-0 group-hover:opacity-100 flex items-center gap-x-1 py-4'}>
 				{!initialData.icon && !preview && (
-					<IconPicker asChild onChange={() => {}}>
+					<IconPicker asChild onChange={onIconSelect}>
 						<Button className={'text-muted-foreground text-xs'} variant={'outline'} size={'sm'}>
 							<span className="flex items-center">
 								<Smile className={'size-4 mr-2'} />
@@ -74,7 +84,7 @@ const Toolbar: FC<ToolbarProps> = ({ initialData, preview }): ReactElement => {
 					</IconPicker>
 				)}
 				{!initialData.coverImage && !preview && (
-					<Button onClick={() => {}} className={'text-muted-foreground text-xs'} variant={'outline'} size={'sm'}>
+					<Button onClick={coverImage.onOpen} className={'text-muted-foreground text-xs'} variant={'outline'} size={'sm'}>
 						<ImageIcon className={'size-4 mr-2'} />
 						Add cover
 					</Button>
