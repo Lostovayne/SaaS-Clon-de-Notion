@@ -51,7 +51,6 @@ export const Item = ({
     event.stopPropagation();
     if (!id) return;
     const promise = archive({ id });
-    console.log(promise);
 
     toast.promise(promise, {
       loading: "Moving to trash...",
