@@ -34,11 +34,16 @@ export const CoverImageModal = () => {
 
 	return (
 		<Dialog open={coverImage.isOpen} onOpenChange={coverImage.onClose}>
+			<DialogHeader>
+				<h2 className={'text-center text-lg font-semibold'}>Cover Image</h2>
+			</DialogHeader>
 			<DialogContent>
-				<DialogHeader>
-					<h2 className={'text-center text-lg font-semibold'}>Cover Image</h2>
-				</DialogHeader>
-				<SingleImageDropzone onChange={onChange} disabled={isSubmitting} className={'w-full outline-none'} value={file} />
+				<SingleImageDropzone
+					onChange={onChange}
+					disabled={isSubmitting}
+					className={'w-full outline-none'}
+					value={file}
+				/>
 			</DialogContent>
 		</Dialog>
 	);

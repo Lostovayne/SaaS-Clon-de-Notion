@@ -1,6 +1,0 @@
-main = ".worker-next/index.mjs"
-name = "clone-notion"
-compatibility_date = "2024-11-29"
-compatibility_flags = ["nodejs_compat"]
-assets = { directory = ".worker-next/assets", binding = "ASSETS" }
-send_metrics = false
