@@ -1,5 +1,5 @@
 'use client';
-import { Dialog, DialogContent, DialogHeader } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { api } from '@/convex/_generated/api';
 import type { Id } from '@/convex/_generated/dataModel';
 import { useCoverImage } from '@/hooks/use-cover-image';
@@ -24,20 +24,24 @@ export const CoverImageModal = () => {
 	};
 
 	const onChange = async (file?: File) => {
-		if (file) {
-			setIsSubmitting(true);
-			setFile(file);
-			const res = await edgestore.publicFiles.upload({ file });
-			await update({ id: params.documentId as Id<'documents'>, coverImage: res.url });
+		try {
+			if (file) {
+				setIsSubmitting(true);
+				setFile(file);
+				const res = await edgestore.publicFiles.upload({ file });
+				await update({ id: params.documentId as Id<'documents'>, coverImage: res.url });
+			}
+		} catch (error) {
+			console.error(error);
 		}
 	};
 
 	return (
 		<Dialog open={coverImage.isOpen} onOpenChange={coverImage.onClose}>
-			<DialogHeader>
-				<h2 className={'text-center text-lg font-semibold'}>Cover Image</h2>
-			</DialogHeader>
 			<DialogContent>
+				<DialogHeader>
+					<DialogTitle className={'text-center text-lg font-semibold'}>Cover Image</DialogTitle>
+				</DialogHeader>
 				<SingleImageDropzone
 					onChange={onChange}
 					disabled={isSubmitting}
