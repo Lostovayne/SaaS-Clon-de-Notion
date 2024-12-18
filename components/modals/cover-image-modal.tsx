@@ -30,6 +30,7 @@ export const CoverImageModal = () => {
 				setFile(file);
 				const res = await edgestore.publicFiles.upload({ file });
 				await update({ id: params.documentId as Id<'documents'>, coverImage: res.url });
+				onClose();
 			}
 		} catch (error) {
 			console.error(error);
