@@ -10,7 +10,11 @@ interface IconPickerProps {
 	asChild?: boolean;
 }
 
-export const IconPicker = ({ onChange, children, asChild }: IconPickerProps): React.ReactElement => {
+export const IconPicker = ({
+	onChange,
+	children,
+	asChild
+}: IconPickerProps): React.ReactElement => {
 	const { resolvedTheme } = useTheme();
 	const currentTheme = (resolvedTheme || 'light') as keyof typeof themeMap;
 
@@ -24,7 +28,15 @@ export const IconPicker = ({ onChange, children, asChild }: IconPickerProps): Re
 		<Popover>
 			<PopoverTrigger asChild={asChild}>{children}</PopoverTrigger>
 			<PopoverContent className={'p-0 w-full border-none shadow-none'}>
-				<EmojiPicker height={350} theme={theme} onEmojiClick={(data) => onChange(data.emoji)} />
+				<EmojiPicker
+					emojiVersion={'14.0'}
+					lazyLoadEmojis={true}
+					reactions={['happy', 'sad', 'laughing', 'surprised']}
+					allowExpandReactions={true}
+					height={350}
+					theme={theme}
+					onEmojiClick={(data) => onChange(data.emoji)}
+				/>
 			</PopoverContent>
 		</Popover>
 	);
