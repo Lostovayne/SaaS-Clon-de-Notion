@@ -20,6 +20,7 @@ const Editor: FC<EditorProps> = ({ onChange, initialContent, editable }): ReactE
 	const { edgestore } = useEdgeStore();
 
 	const handleUpload = async (file: File) => {
+		// TODO: Cambiar de Bucket si el problema persiste
 		const response = await edgestore.publicFiles.upload({
 			file
 		});
