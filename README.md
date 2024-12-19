@@ -28,6 +28,7 @@ This project is a feature-rich Notion clone that demonstrates the implementation
 - Infinite nested documents
 - Secure authentication system
 - Light and dark mode support
+- **Integration of new functionalities** - New features have been added to enhance the user experience.
 
 ### Document Management
 
@@ -36,6 +37,7 @@ This project is a feature-rich Notion clone that demonstrates the implementation
 - Document recovery system
 - Real-time document icon updates
 - Cover images for documents
+- **Document management improvements** - New options for file retrieval and management have been implemented.
 
 ### User Interface
 
@@ -44,6 +46,7 @@ This project is a feature-rich Notion clone that demonstrates the implementation
 - Web publishing capabilities
 - Custom landing page
 - Modern and clean UI
+- **User interface upgrade** - Adjustments have been made to improve usability and aesthetics.
 
 ## Technology Stack
 
@@ -53,6 +56,7 @@ This project is a feature-rich Notion clone that demonstrates the implementation
 - **TypeScript** - Static type checking
 - **Tailwind CSS** - Utility-first CSS framework
 - **Shadcn** - Customizable UI components
+- **Blocknote** - A powerful and flexible framework for building modern web applications.
 
 ### Backend & Services
 
@@ -90,13 +94,19 @@ yarn install
    - Configure the following environment variables:
 
 ```env
-# Convex deployment
+
 CONVEX_DEPLOYMENT=
 NEXT_PUBLIC_CONVEX_URL=
-
-# Clerk authentication
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
+EDGE_STORE_ACCESS_KEY=
+EDGE_STORE_SECRET_KEY=
+
+
+NEXT_PUBLIC_EDGE_STORE_ACCESS_KEY=
+NEXT_PUBLIC_EDGE_STORE_SECRET_KEY=
+
+
 ```
 
 4. Start the development servers
@@ -116,7 +126,7 @@ yarn dev
 ```
 notion-clone/
 ├── app/                    # Next.js app directory
-│   ├── (main)/            # Main application routes
+│   ├─(main)/            # Main application routes
 │   └── (marketing)/       # Marketing pages
 ├── components/            # Reusable UI components
 ├── convex/                # Backend models and functions
