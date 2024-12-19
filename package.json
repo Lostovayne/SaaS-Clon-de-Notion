@@ -13,6 +13,9 @@
     "deploy:worker": "npm run build:worker && wrangler deploy"
   },
   "dependencies": {
+    "@blocknote/core": "^0.21.0",
+    "@blocknote/mantine": "^0.21.0",
+    "@blocknote/react": "^0.21.0",
     "@clerk/clerk-react": "^5.20.3",
     "@clerk/themes": "^2.2.2",
     "@edgestore/react": "^0.2.2",

@@ -1,8 +1,8 @@
-'use client';
+// 'use client';
 
-import EmojiPicker, { Theme } from 'emoji-picker-react';
-import { useTheme } from 'next-themes';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import EmojiPicker, { Theme } from "emoji-picker-react";
+import { useTheme } from "next-themes";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 interface IconPickerProps {
 	onChange: (icon: string) => void;
@@ -16,7 +16,7 @@ export const IconPicker = ({
 	asChild
 }: IconPickerProps): React.ReactElement => {
 	const { resolvedTheme } = useTheme();
-	const currentTheme = (resolvedTheme || 'light') as keyof typeof themeMap;
+	const currentTheme = (resolvedTheme || "light") as keyof typeof themeMap;
 
 	const themeMap = {
 		light: Theme.LIGHT,
@@ -27,11 +27,11 @@ export const IconPicker = ({
 	return (
 		<Popover>
 			<PopoverTrigger asChild={asChild}>{children}</PopoverTrigger>
-			<PopoverContent className={'p-0 w-full border-none shadow-none'}>
+			<PopoverContent className={"p-0 w-full border-none shadow-none"}>
 				<EmojiPicker
-					emojiVersion={'14.0'}
+					emojiVersion={"14.0"}
 					lazyLoadEmojis={true}
-					reactions={['happy', 'sad', 'laughing', 'surprised']}
+					reactions={["happy", "sad", "laughing", "surprised"]}
 					allowExpandReactions={true}
 					height={350}
 					theme={theme}

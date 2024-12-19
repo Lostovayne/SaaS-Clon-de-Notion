@@ -3,11 +3,13 @@ const nextConfig = {
 	images: {
 		remotePatterns: [
 			{
-				protocol: 'https',
-				hostname: 'files.edgestore.dev'
+				protocol: "https",
+				hostname: "files.edgestore.dev"
 			}
 		]
 	},
+
+	crossOrigin: "anonymous",
 
 	eslint: {
 		ignoreDuringBuilds: true
