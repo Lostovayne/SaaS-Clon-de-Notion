@@ -28,7 +28,18 @@ export const CoverImageModal = () => {
 			if (file) {
 				setIsSubmitting(true);
 				setFile(file);
-				const res = await edgestore.publicFiles.upload({ file });
+
+				/**
+				 * @param {File} file - El archivo que se va a subir.
+				 * @param {Object} options - Opciones para la subida del archivo.
+				 * @param {string} options.replaceTargetUrl - Si ya existe un archivo con la misma URL, se remplaza.
+				 */
+				const res = await edgestore.publicFiles.upload({
+					file,
+					options: {
+						replaceTargetUrl: coverImage.url
+					}
+				});
 				await update({ id: params.documentId as Id<'documents'>, coverImage: res.url });
 				onClose();
 			}
