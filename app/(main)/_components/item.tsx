@@ -1,24 +1,22 @@
-'use client';
-
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu';
-import { Skeleton } from '@/components/ui/skeleton';
-import { api } from '@/convex/_generated/api';
-import { Id } from '@/convex/_generated/dataModel';
-import { cn } from '@/lib/utils';
-import { useUser } from '@clerk/clerk-react';
-import { useMutation } from 'convex/react';
-import { ChevronDown, ChevronRight, LucideIcon, MoreHorizontal, Plus, Trash } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { toast } from 'sonner';
+} from "@/components/ui/dropdown-menu";
+import { Skeleton } from "@/components/ui/skeleton";
+import { api } from "@/convex/_generated/api";
+import { Id } from "@/convex/_generated/dataModel";
+import { cn } from "@/lib/utils";
+import { useUser } from "@clerk/nextjs";
+import { useMutation } from "convex/react";
+import { ChevronDown, ChevronRight, LucideIcon, MoreHorizontal, Plus, Trash } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 interface ItemProps {
-	id?: Id<'documents'>;
+	id?: Id<"documents">;
 	documentIcon?: string;
 	active?: boolean;
 	expanded?: boolean;
@@ -53,9 +51,9 @@ export const Item = ({
 		const promise = archive({ id });
 
 		toast.promise(promise, {
-			loading: 'Moving to trash...',
-			success: 'Document moved to trash!',
-			error: 'Error moving the document to trash.'
+			loading: "Moving to trash...",
+			success: "Document moved to trash!",
+			error: "Error moving the document to trash."
 		});
 	};
 
@@ -70,7 +68,7 @@ export const Item = ({
 		event.stopPropagation();
 		if (!id) return;
 
-		const promise = create({ title: 'Untitled', parentDocument: id }).then((documentId) => {
+		const promise = create({ title: "Untitled", parentDocument: id }).then((documentId) => {
 			if (!expanded) {
 				onExpand?.();
 			}
@@ -78,9 +76,9 @@ export const Item = ({
 		});
 
 		toast.promise(promise, {
-			loading: 'Creating a new note...',
-			success: 'Note created successfully!',
-			error: 'Error creating the note.'
+			loading: "Creating a new note...",
+			success: "Note created successfully!",
+			error: "Error creating the note."
 		});
 	};
 
@@ -89,60 +87,60 @@ export const Item = ({
 	return (
 		<div
 			onClick={onClick}
-			role='button'
-			style={{ paddingLeft: level ? `${level * 12 + 12}px` : '12px' }}
+			role="button"
+			style={{ paddingLeft: level ? `${level * 12 + 12}px` : "12px" }}
 			className={cn(
-				'group min-h-[27px] text-sm py-1 pr-3 w-full hover:bg-primary/5 flex items-center text-muted-foreground font-medium',
-				active && 'bg-primary/5 text-primary'
+				"group min-h-[27px] text-sm py-1 pr-3 w-full hover:bg-primary/5 flex items-center text-muted-foreground font-medium",
+				active && "bg-primary/5 text-primary"
 			)}>
 			{!!id && (
 				<div
-					className='h-full rounded-md hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1'
-					role='button'
+					className="h-full rounded-md hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1"
+					role="button"
 					onClick={handleExpand}>
 					<ChevronIcon />
 				</div>
 			)}
 
 			{documentIcon ?
-				<div className='shrink-0 mr-2 text-[18px]'>{documentIcon}</div>
-			:	<Icon className='shrink-0 h-[18px] mr-2 text-muted-foreground' />}
+				<div className="shrink-0 mr-2 text-[18px]">{documentIcon}</div>
+			:	<Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground" />}
 
-			<span className='truncate'>{label}</span>
+			<span className="truncate">{label}</span>
 			{isSearch && (
 				<kbd
 					className={
-						'ml-auto pointer-events-none inline-flex h-6 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-xs font-medium  text-muted-foreground opacity-100'
+						"ml-auto pointer-events-none inline-flex h-6 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-xs font-medium  text-muted-foreground opacity-100"
 					}>
-					<span className='text-sm'>⌘</span>K
+					<span className="text-sm">⌘</span>K
 				</kbd>
 			)}
 			{!!id && (
-				<div className='ml-auto flex items-center gap-x-2'>
+				<div className="ml-auto flex items-center gap-x-2">
 					<DropdownMenu>
 						<DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
 							<div
-								role='button'
-								className='opacity-0 group-hover:opacity-100 h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600'>
-								<MoreHorizontal className='size-4 text-muted-foreground' />
+								role="button"
+								className="opacity-0 group-hover:opacity-100 h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600">
+								<MoreHorizontal className="size-4 text-muted-foreground" />
 							</div>
 						</DropdownMenuTrigger>
-						<DropdownMenuContent className='w-60' align='start' side='right' forceMount>
-							<DropdownMenuItem onClick={onArchive} className='text-muted-foreground'>
-								<Trash className='size-4  mr-2' />
+						<DropdownMenuContent className="w-60" align="start" side="right" forceMount>
+							<DropdownMenuItem onClick={onArchive} className="text-muted-foreground">
+								<Trash className="size-4  mr-2" />
 								Delete
 							</DropdownMenuItem>
 							<DropdownMenuSeparator />
-							<div className='text-xs text-muted-foreground p-2'>
+							<div className="text-xs text-muted-foreground p-2">
 								Last edited by: {user?.fullName}
 							</div>
 						</DropdownMenuContent>
 					</DropdownMenu>
 					<div
-						role='button'
+						role="button"
 						onClick={onCreate}
-						className=' opacity-0 group-hover:opacity-100  h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1'>
-						<Plus className='size-4 text-muted-foreground' />
+						className=" opacity-0 group-hover:opacity-100  h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1">
+						<Plus className="size-4 text-muted-foreground" />
 					</div>
 				</div>
 			)}
@@ -154,11 +152,11 @@ Item.Skeleton = function ItemSkeleton({ level }: { level: number }) {
 	return (
 		<div
 			style={{
-				paddingLeft: level ? `${level * 12 + 25}px` : '12px'
+				paddingLeft: level ? `${level * 12 + 25}px` : "12px"
 			}}
-			className='flex gap-2 py-[3px]'>
-			<Skeleton className='h-3 w-4' />
-			<Skeleton className='h-3.5 w-[44%]' />
+			className="flex gap-2 py-[3px]">
+			<Skeleton className="h-3 w-4" />
+			<Skeleton className="h-3.5 w-[44%]" />
 		</div>
 	);
 };
