@@ -24,7 +24,6 @@ const Editor: FC<EditorProps> = ({ onChange, initialContent, editable }): ReactE
 		const response = await edgestore.publicFiles.upload({
 			file
 		});
-		console.log(response);
 		return response.url;
 	};
 
