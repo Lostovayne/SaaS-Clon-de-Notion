@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useUser } from '@clerk/clerk-react';
-import { Button } from '@/components/ui/button';
-import { PlusCircle } from 'lucide-react';
+import Image from "next/image";
+import { useUser } from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
+import { PlusCircle } from "lucide-react";
 
-import { useMutation } from 'convex/react';
-import { api } from '@/convex/_generated/api';
-import { toast } from 'sonner';
+import { useMutation } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { toast } from "sonner";
 
 const DocumentsPage = () => {
 	const { user } = useUser();
 	const create = useMutation(api.documents.create);
 	const onCreate = async () => {
-		const promise = create({ title: 'Untitled' });
+		const promise = create({ title: "Untitled" });
 
 		toast.promise(promise, {
-			loading: 'Creating a new note...',
-			success: 'Note created successfully!',
-			error: 'Error creating the note.'
+			loading: "Creating a new note...",
+			success: "Note created successfully!",
+			error: "Error creating the note."
 		});
 	};
 
