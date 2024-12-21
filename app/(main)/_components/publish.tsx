@@ -97,10 +97,10 @@ const Publish: FC<PublishProps> = ({ initialData }): ReactElement => {
 							Unpublish
 						</Button>
 					</div>
-				:	<div className={"flex flex-col items-center justify-center"}>
-						<GlobeIcon className={"size-8 text-muted-foreground mb-2"} />
-						<p className={"text-sm font-medium mb-2"}>Publish this note</p>
-						<span>Share your work with the world</span>
+				:	<div className={"flex flex-col items-center justify-center gap-y-3"}>
+						<GlobeIcon className={"size-8 text-muted-foreground"} />
+						<p className={"text-xs font-medium mb-2"}>Publish this note</p>
+						<span className={"text-sm pb-1"}>Share your work with the world</span>
 						<Button
 							disabled={isSubmitting}
 							onClick={onPublish}
