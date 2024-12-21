@@ -27,7 +27,7 @@ const Navbar = () => {
 				{!isAuthenticated && !isLoading && (
 					<>
 						<SignInButton mode={"modal"}>
-							<Button variant="ghost" size="sm">
+							<Button variant="outline" size="sm">
 								Log in
 							</Button>
 						</SignInButton>
