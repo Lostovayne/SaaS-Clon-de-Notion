@@ -69,18 +69,18 @@ const Publish: FC<PublishProps> = ({ initialData }): ReactElement => {
 			</PopoverTrigger>
 			<PopoverContent className={"w-72"} align={"end"} alignOffset={8} forceMount>
 				{initialData.isPublished ?
-					<div className={"space-y-2"}>
+					<div className={"space-y-4"}>
 						<div className={"flex items-center gap-x-2"}>
-							<GlobeIcon className={"text-sky-500 h-4 w-4"} />
-							<p>This note is live on the internet</p>
+							<GlobeIcon className={"text-sky-500 size-4 animate-pulse"} />
+							<p className={"text-xs font-medium text-sky-500"}>
+								This note is live on the internet
+							</p>
 						</div>
 						<div className={"flex items-center"}>
 							<Input
 								value={url}
 								readOnly
-								className={
-									"flex-1 px-2 text-xs border rounded-l-md h-8 bg-muted-foreground  truncate"
-								}
+								className={"flex-1 px-2 text-xs border rounded-l-md h-8 bg-muted truncate"}
 								disabled
 							/>
 							<Button onClick={onCopy} disabled={copied} className={"h-8 rounded-l-none"}>
