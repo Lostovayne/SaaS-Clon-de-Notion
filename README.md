@@ -121,6 +121,15 @@ npm run dev
 yarn dev
 ```
 
+5. Deploy Proyect to Vercel
+
+```bash
+   npm run build && npx convex deploy
+
+   # Copied and Paste env variables
+
+```
+
 ## Project Structure
 
 ```
